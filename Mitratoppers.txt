@@ -1,0 +1,305 @@
+*** Settings ***
+Library       	Selenium2Library
+ 
+*** Variables ***
+${masuk}            xpath=//*[@id="root"]/div/div/div[1]/header/nav/ul/li[5]/a
+
+#//*[@id="root"]/div/div/div[1]/header/nav/ul/li[5]
+${username field}	xpath=//*[@id="inputEmail"]      #id=inputEmail	# username field
+${password field}	xpath=//*[@id="inputPassword"]	# password field
+${login button}	    xpath=//*[@id="email_btn"]	# login button
+${pinjaman}         xpath=//*[@id="root"]/div/div/div[2]/section[1]/div[2]/div/div/select
+#${amount} xpath=//*[@id="root"]/div/div/div[2]/section[1]/div[2]/div/div/select
+${cari}             xpath=//*[@id="root"]/div/div/div[2]/section[1]/div[2]/div/div/button
+#${logout link}	   id='wrapper']/div[2]/div[2]/div/div/ul/li/a/div/div/button	
+${lanjut_criteria}           xpath=//*[@id="0"]/div[2]/button
+#${back}             xpath=//*[@id="0"]/div[3]/button[1]
+${domicile}         xpath=//*[@id="1"]/div[2]/select
+${lanjut}           xpath=//*[@id="1"]/div[4]/button[2]
+#${back}             xpath=//*[@id="1"]/div[3]/button[1]
+${choice_ya}        xpath=//*[@id="2"]/div[1]/div/div[1]/div/div/label/div[1]
+#${choice_tdk}      xpath=//*[@id="2"]/div[1]/div/div[2]/div/div/label/div[1]
+${lanjut_2}         xpath=//*[@id="2"]/div[3]/button[2]
+#${back}             xpath=//*[@id="2"]/div[3]/button[1]
+#/html/body/div/div/div/div[2]/div/section[2]/div/div/select
+# logout link
+${ceklist_SKU}      xpath=//*[@id="3"]/div[1]/div/div[1]/label/span
+${ceklist_SKDU}     xpath=//*[@id="3"]/div[1]/div/div[2]/label/span
+${ceklist_SIUP}     xpath=//*[@id="3"]/div[1]/div/div[3]/label/span
+#${ceklist_IUMK}        xpath=//*[@id="3"]/div[1]/div/div[4]/label/span
+#${ceklist_NoDocument}  xpath=//*[@id="3"]/div[1]/div/div[5]/label/span
+#${ceklist_Lainnya}     xpath=//*[@id="3"]/div[1]/div/div[6]/label/span 
+${lanjut_3}          xpath=//*[@id="3"]/div[3]/button[2]
+#${back}             xpath=//*[@id="3"]/div[3]/button[1]
+${npwp_pribadi}      xpath=//*[@id="4"]/div[1]/div/div[1]/label/span
+${npwp_badan}        xpath=//*[@id="4"]/div[1]/div/div[2]/label/span
+#${no_npwp}           xpath=//*[@id="4"]/div[1]/div/div[3]/label/span
+${lanjut_4}          xpath=//*[@id="4"]/div[3]/button[2]
+#${back}             xpath=//*[@id="4"]/div[3]/button[1]
+${CC_Yes}            xpath=//*[@id="5"]/div[1]/div/div[1]/div/div/label/div[1]
+${CC_No}             xpath=//*[@id="5"]/div[1]/div/div[2]/div/div/label/div[1]
+${lanjut_5}          xpath=//*[@id="5"]/div[3]/button[2]
+#${back}             xpath=//*[@id="5"]/div[3]/button[1]  
+${motor}             xpath=//*[@id="6"]/div[1]/div/div[1]/label/span
+${mobil}             xpath=//*[@id="6"]/div[1]/div/div[2]/label/span
+${rumah}             xpath=//*[@id="6"]/div[1]/div/div[3]/label/span
+${no_loan}           xpath=//*[@id="6"]/div[1]/div/div[4]/label/span
+${OtherAsset}        xpath=//*[@id="6"]/div[1]/div/div[5]/label/span
+${lanjut_6}          xpath=//*[@id="6"]/div[3]/button[2]
+#${back}             xpath=//*[@id="6"]/div[3]/button[1]
+${lanjut_fix}        xpath=//*[@id="7"]/div[2]/button[2]
+#${back_fix}             xpath=//*[@id="7"]/div[2]/button[1]
+${Ajukan}             xpath=(//*[contains(@class,"mtp-btn--orange")])[1]
+
+#${Nama}   	     	xpath=//*[@id="step1-fullname"]
+#${KTP}      	   	xpath=//*[@id="step1-ktp"]
+#${NPWP}        		xpath=//*[@id="step1-npwp"]
+#${Gender-Pria}     	xpath=//*[@id="formPersonalInformation"]/div[1]/div[1]/div/div[4]/div[2]/div/label[1]/span
+#${Gender-wanita}   	xpath=//*[@id="formPersonalInformation"]/div[1]/div[1]/div/div[4]/div[2]/div/label[2]/span
+#${province}     	xpath=//*[@id="step1-birthplace-province"]
+#${city}  			xpath=//*[@id="step1-birthplace-city"]
+#${Tgl_lahir}      	xpath=//*[@id="step1-birthdate"]
+#${bulan_lahir}    	xpath=//*[@id="step1-birthmonth"]
+#${tahun_lahir}    	xpath=//*[@id="step1-birthyear"]
+#${phone}          	xpath=//*[@id="step1-phone"]
+#${alt_phone}      	xpath=//*[@id="step1-otherphone"]
+#${email}          	xpath=//*[@id="step1-email"]   
+#${status}             			xpath=//*[@id="step1-status"]
+#${mother_name}					xpath=//*[@id="step1-mother"]
+${Lanjut_form2}        			xpath=//*[@id="formPersonalInformation"]/div[2]/button[2]
+
+#${brother_name}        			xpath=//*[@id="step2-fullname"]
+#${birth_province} 				xpath=//*[@id="step1-birthplace-province"]
+#${birth_city}                   xpath=//*[@id="step1-birthplace-city"]
+#${birthdate}                  	xpath=//*[@id="step2-birthdate"]
+#${month}                       	xpath=//*[@id="step2-birthmonth"]
+#${years}						xpath=//*[@id="step2-birthyear"]
+#${phonenumber}					xpath=//*[@id="step2-phone"]    
+#${mother_name2}         		xpath=//*[@id="formRelativeInformation"]/div[1]/div[2]/div/div[2]/div[1]/label
+#${relationship}          		xpath=//*[@id="relationship"]
+${Lanjut_form3}       			xpath=//*[@id="formRelativeInformation"]/div[2]/button[2]
+
+#${Address}                    	xpath=//*[@id="step3-address"]
+#${RT}                  			 xpath=//*[@id="step3-rt"]
+#${RW}                    	  	 xpath=//*[@id="step3-rw"]
+#${kodepos}                	   	xpath=//*[@id="step3-postalcode"]
+#${province}                	    xpath=//*[@id="step3-province"]
+#${city}
+#${district}             		xpath=//*[@id="step3-district"]
+#${owner}                        xpath=-//*[@id="step3-ownership"]
+#${duration}                     xpath=//*[@id="step3-duration"]
+
+
+#${Address_domicile}          xpath=//*[@id="formAddressInformation"]/div[2]/div[1]/div/div[1]/div[2]
+#${RT1}                           xpath=//*[@id="step3-rt2"]
+#${RW1}                         xpath=//*[@id="step3-rw2"]
+
+#${kodepos}                	   	xpath=//*[@id="step3-postalcode2"]
+#${province}                	    xpath=//*[@id="step3-province"]
+#${city}
+#${district}             		xpath=//*[@id="step3-district"]
+#${owner}                        xpath=-//*[@id="step3-ownership"]
+#${duration} 
+#${Province1}                        //*[@id="step3-province2"]
+#${city1}                               //*[@id="step3-city2"]
+#${district1}
+#${owner1}                  xpath=//*[@id="step3-ownership2"]
+#${lama_menetap}                
+${lanjutform4}   xpath=//*[@id="formAddressInformation"]/div[3]/button[2]
+
+#${Sektor_usaha}				xpath=//*[@id="step4-area"]
+#${Sektor_ekonomi}	       xpath=//*[@id="step4-economy"]
+#${jenis_usaha}	            xpath=//*[@id="businessCode"]
+#${Tgl_usaha}	            xpath=//*[@id="step4-startdate"]
+#${Bulan_usaha}	            xpath=//*[@id="step4-startmonth"]
+#${Tahun_usaha}	             xpath=//*[@id="step4-startyear"]
+#${Question}					xpath=//*[@id="step4-mainincome"]
+#${nama_toko}	       		xpath=//*[@id="step4-shop"]
+#${domain_tokopedia}	              xpath=//*[@id="step4-domain"]
+#${punya_toko_online}		xpath=//*[@id="step4-hasOtherShop"]
+#${domain_BL}				xpath=//*[@id="step4-domainBl"]
+#${domain_Shopee}			xpath=//*[@id="step4-domainSp"]
+#${jenis_toko}				xpath= //*[@id="step4-shoptype"]
+
+
+
+
+#${address_toko}   			xpath= //*[@id="step4-shopaddress"]	
+#${RT}	  					xpath=//*[@id="step4-shoprt"]
+#${RW}	 					 xpath= //*[@id="step4-shoprw"]
+#${kodepos}					xpath=//*[@id="step4-shoppc"]
+#${province4}				xpath=//*[@id="shop_province"]
+#${City4}					xpath=//*[@id="shop_city"]
+#${District4}				xpath=//*[@id="shop_district"]
+${lanjutform5}               xpath=//*[@id="formBusinessInformation"]/div[3]/button[2]
+
+#${pinjaman_yg_dimiliki}     	   xpath=//*[@id="step5-currentloan"]
+#${total_pinjaman}  				   xpath=//*[@id="step5-loantotal"]
+#${total_cicilan}    			   xpath=//*[@id="step5-installment"]
+#${sisa_pinjaman}   				   xpath=//*[@id="step5-remaining"]
+${lanjutform6}               xpath=//*[@id="formFinancialInformation"]/div[2]/button[2]
+
+#${Foto_dgn_Pemilik}  				 xpath=//*[@id="uploader"]
+#${KTP}           					  xpath=//*[@id="uploader"]
+#${KK_Optional}       				 xpath=//*[@id="uploader"]
+${ceklist}  						xpath=//*[@id="6"]/form/div/div[1]/div/div[2]/div/label/span
+${apply}                      		xpath=//*[@id="6"]/form/div/div[2]/button[2]
+${browser}  chrome
+ 
+*** Keywords ***
+ 
+ 
+*** Test Cases ***
+Valid User Login
+	Open Browser	https://xxxxx.com/xxxx/  chrome
+
+	#Sleep    10
+	Click Element                   ${masuk} 
+		Maximize Browser Window
+	Wait Until Element Is Visible	${login button}	  10s
+	Input Text	${username field}	                  xxxxx@gmail.com
+	Input Text	${password field}	                  xxxx	
+	Sleep      10
+	Click Element	                ${login button}
+    Sleep       10
+    #Click Element                   ${pinjaman}  
+
+   
+    Select From List By Label       ${pinjaman}          Rp 100.000.000
+    Sleep                        10
+
+    Click Element                   ${cari} 
+    #Page Should Contain Element	${hidden submenu}
+	Capture Page Screenshot
+    Sleep                        10
+	Click Element                   ${lanjut_criteria}
+	Select From List By Label       ${domicile}          Jakarta
+	Click Element                   ${lanjut}
+	Click Element                   ${choice_ya}
+	Click Element                   ${lanjut_2}
+	Click Element                   ${ceklist_SKU} 
+	Click Element                   ${ceklist_SKDU} 
+	Click Element                   ${ceklist_SIUP}
+	Click Element                   ${lanjut_3} 
+	Click Element                   ${npwp_pribadi}
+	Click Element                   ${npwp_badan}
+	Click Element                   ${lanjut_4}
+	Click Element                   ${CC_Yes}          
+    #Click Element  Select Checkbox                ${CC_No}             
+    Click Element    			${lanjut_5}          
+	Click Element  				${motor}             
+    Click Element 				${mobil}             
+    Click Element  				${rumah}             
+    Click Element  				${no_loan}           
+    Click Element 				${OtherAsset}        
+    Click Element 				${lanjut_6}          
+    #${back}             xpath=//*[@id="6"]/div[3]/button[1]
+    Click Element 				${lanjut_fix}  
+    Sleep						10
+    Click Element               ${Ajukan}  
+    Sleep  						5
+     #Input Text					${Nama}   	     	          Testing Ya
+	    #Input Text					${KTP}      	   	          3174080685001002
+	    #Input Text					${NPWP}        		          234509689490324
+	    #Click Element 				${Gender-Pria}     	          Laki - Laki           
+	#Click Element               ${Gender-wanita}             Perempuan	
+       # Click Element               ${province}     	          Sumatera Utara
+        #Click Element        		${city}  			          Kab. Asahan
+       # Click Element               ${Tgl_lahir}      	          8
+       # Click Element               ${bulan_lahir}    	          Juni
+       # Click Element               ${tahun_lahir}    	          1985  
+       # Input Text 					${phone}          	          082389901111
+	    #Input Text				 	${alt_phone}      			  088820102222
+       # Input Text                  ${email}          	          test@gmail.com
+       # Click Element               ${status}             		  Cerai / Janda / Duda     #Menikah   #Belum Menikah	
+       # Input Text					${mother_name}				  Rana Test	 
+    Click Element 				${Lanjut_form2}        			
+    Sleep						5
+#-------------------------------------------------------------------------------------------------------------------
+	    #Input Text					${brother_name}        			Brother Test
+        #Click Element 				${birth_province} 				Sumatera Utara
+	    #Click elements 				${birth_city}                   Kab. Batubara
+	    #Click elements 				${birthdate}                  	20
+       # Click elements 				${month}                       	Juli
+       # Click Element 				${years}						1980
+	    #Input Text					${phonenumber}					089944559945  
+        #Input Text					${mother_name2}         		Tester mama
+        #Click Element 				${relationship}          		Kakak / Adik Kandung
+  	Click Element 				${Lanjut_form3}  
+  	Sleep						5     			
+#------------------------------------------------
+	    #Input Text					${Address}                    	Jl.Angkasa Pura
+	    #Input Text 					${RT}                  			002
+	    #Input Text	  				${RW}                    	  	03
+       # Input Text 					${kodepos}                	   	12133
+	    #Click Element 				${province}                	    Sumatera Utara
+       # Click Element 				${city}                         Kab. Asahan
+        #Click Element   			${district}             		Air Joman
+	    #Click Element    			${owner}                        Milik Sendiri   #Keluarga #Perusahaan # Sewa/Kontrak
+        #Input Text  				${duration}                     35
+    	
+   				
+#-------
+	    #Input Text				    ${Address_domicile}             Jl.Rakasa Jana
+	    #Input Text 					${RT1}                          002
+	    #Input Text 					${RW1}                          05
+       #Input Text 					${kodepos}                	   	23244
+	    #Click Element 				${province2}                    Sumatera Utara	
+	    #Click Element    			${city2}                        Kab. Asahan
+	    #Click Element    			${owner2}                       Perusahaan
+	    #Click Element   			${duration2}                     23
+	Click Element  	 			${lanjutform4} 
+	Sleep						5              
+
+#-----------------------------------------------------------------------------------------------------------	
+    #Click Element 				${Sektor_usaha}				    Pertanian, Perburuan, dan Kehutanan
+   	    #Click Element 				${Sektor_ekonomi}	            Pertanian Tanaman Hias Lainnya
+       #	Click Element 				${jenis_usaha}	                11240
+       #	Click Element 				${Tgl_usaha}	                7
+	    #Click Element  				${Bulan_usaha}	                Agustus
+	    #Click Element  				${Tahun_usaha}	                1956
+	    #Click Element 				${Question}		         	    Ya
+	    #Input Text	 				${nama_toko}	       			DEMO STORE
+       # Input Text                  ${domain_tokopedia}	            https://staging.tokopedia.com/demostore  
+	    #Click Element 				${punya_toko_online} 	        Ada		
+	    #Input Text 					${domain_BL}					https://www.bukalapak.com/u/sds
+	    #Input Text				 	${domain_Shopee}			    https://shopee.co.id/maulana24hikaru
+       # Click Element  				${jenis_toko}          		  Ada Toko Fisik				
+	    #Input Text 					${address_toko}   			  Jl.Tester 
+	    #Input Text 					${RT}	  					  009
+	    #Input Text 					${RW}                         002
+	    #Input Text 					${kodepos}                    23233
+	    #Click Element  				${province4}	              Sumatera Utara			
+	    #Click Element  				${City4}					  Kab. Batubara
+	    #Click Element  				${District4}				  Talawi
+	    #Click Element  				${lanjutform4}						
+	   Click Element  	 			${lanjutform5} 
+	    Sleep						5   
+
+
+    #Click Element    			${pinjaman_yg_dimiliki}       Kartu Kredit	  
+    #Input Text 					${total_pinjaman}  		      23000000	   
+	#Input Text   				${total_cicilan}    		   540000
+	#Input Text  				${sisa_pinjaman}   			  12000000		   
+	#Click Element 				${lanjut_form6}   	
+
+
+
+    Click Element  	 			${lanjutform6} 
+	Sleep						5      
+#------------------------------------------------------------------------------------------------------------
+   	       
+	    
+	  #Choose File					${Foto_dgn_Pemilik}  	      C:\Users\Nakama\Desktop\New folder\21 LDI 278.jpg	
+	  #Sleep                        5		 
+	  #Choose File 				${KTP}           			  C:\Users\Nakama\Desktop\New folder\Giardino Sandal Wedges GRD 015.jpg	 
+	  #Sleep                        5 
+      #Choose File					${KK_Optional}       		  F:\download\Asuransi_Online.pdf	
+    
+	Click Element 				${ceklist}  	
+	Sleep                        5			
+	Click Element 				${apply}                      		
+     
+
+    Capture Page Screenshot    
+     Sleep                        10
